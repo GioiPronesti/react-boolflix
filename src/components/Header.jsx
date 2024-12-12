@@ -6,7 +6,7 @@ export default function Header() {
            Boolflix
           </div>
           <input type="text" placeholder="Scrivi qualcosa" className="input-search"/>
-          <div className="button">search</div>
+          <button type="button">Search</button>
         </div>
       </header>
     )

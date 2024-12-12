@@ -1,9 +1,14 @@
+import {MovieContext} from "./contexts/MovieContext.js"
+
+
 
 function App() {
 
   return (
     <>
-      <h1>BOOLFLIX</h1>
+      <MovieContext.provider>
+        
+      </MovieContext.provider>
     </>
   )
 }

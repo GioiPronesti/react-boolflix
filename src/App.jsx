@@ -1,18 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import {MovieContext} from "./contexts/MovieContext.js"
+import MovieContext from "./contexts/MovieContext.js"
 import Home from "./pages/Home.jsx"
+import IndexPageMovies from "./pages/IndexMovie.jsx"
 
 function App() {
 
   return (
     <>
-      <MovieContext.provider>
+      <MovieContext.Provider value={{}}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home/>}/> 
+            <Route path="/home" element={<Home/>}/> 
+              <Route index element={IndexPageMovies}/>
           </Routes>
         </BrowserRouter>
-      </MovieContext.provider>
+      </MovieContext.Provider>
     </>
   )
 }

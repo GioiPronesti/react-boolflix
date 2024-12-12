@@ -1,0 +1,27 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/*Reset Rules*/
+
+ul, ol{
+  text-decoration: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+img{
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+}

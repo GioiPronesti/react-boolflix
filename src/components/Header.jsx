@@ -9,18 +9,23 @@ export default function Header() {
     setQuery(event.target.value)
   }
 
+  function onSubmit(event){
+    event.preventDefault()
+
+    // qui dobbiamo far partire la funzione fetchdata per far scatenare la chiamata alla API
+  }
+
     return (
       <header>
         <div className="container">
           <div>
            Boolflix
           </div>
-          <form>
+          <form onSubmit={onSubmit}>
             <label htmlFor="query"></label>
-            <input type="text" name="query" id="query" value={query} onChange={onChange} placeholder="Scrivi qualcosa" />
+            <input type="text" name="query" id="query"  onChange={onChange} value={query} placeholder="Scrivi qualcosa" />
+            <button>Search</button>
           </form>
-          
-          <button>Search</button>
         </div>
       </header>
     )

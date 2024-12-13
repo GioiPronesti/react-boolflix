@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import Medialist from "./MediaList"
+import MediaList from "./MediaList"
 import GlobalContext from "../contexts/GlobalContext"
 
 export default function Main(){
@@ -10,8 +10,8 @@ const { movies, series } = useContext(GlobalContext)
 // prendendo il valore dal Global Context: movies e series tv  
     return (
         <main>
-            <Medialist title="Movies" items={movies}/>
-            <Medialist title="Series" items={series}/>
+            <MediaList title="Movies" items={movies}/>
+            <MediaList title="Series" items={series}/>
         </main>     
     )
 } 

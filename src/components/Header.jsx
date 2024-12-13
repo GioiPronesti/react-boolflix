@@ -3,7 +3,7 @@ import GlobalContext from "../contexts/GlobalContext"
 
 export default function Header() {
 
-  const { query, setQuery } = useContext(GlobalContext)
+  const { query, setQuery, fetchData} = useContext(GlobalContext)
 
   function onChange(event){
     setQuery(event.target.value)
@@ -13,6 +13,7 @@ export default function Header() {
     event.preventDefault()
 
     // qui dobbiamo far partire la funzione fetchdata per far scatenare la chiamata alla API
+    fetchData()
   }
 
     return (

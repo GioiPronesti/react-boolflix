@@ -38,7 +38,23 @@ function App() {
       console.error(err)  
       setMovies([])
     })
+
+    axios.get("https://api.themoviedb.org/3/search/tv",{
+      params: {
+        api_key: API_KEY,
+        query: query
+      }
+    }).then(res => {
+      console.log(res.data)
+      setSeries(res.data.results)
+    }).catch(err => {
+      console.error(err)  
+      setSeries([])
+    })
   }
+
+
+
   return (
     <>
       <GlobalContext.Provider value={{  movies, series, query, fetchData, setQuery}}>

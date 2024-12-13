@@ -46,7 +46,15 @@ function App() {
       }
     }).then(res => {
       console.log(res.data)
-      setSeries(res.data.results)
+      // per gestire la stampa del nome della series al posto di titolo ci mappiamo l'array 
+      const mappedSeries = res.data.results.map(item => {
+        return {
+          ...item,
+          title : item.name,
+          original_title : item.original_name
+        }
+      })
+      setSeries(mappedSeries)
     }).catch(err => {
       console.error(err)  
       setSeries([])

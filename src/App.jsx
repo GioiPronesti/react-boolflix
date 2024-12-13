@@ -3,8 +3,9 @@ import GlobalContext from "./contexts/GlobalContext.js"
 import Header from "./components/Header.jsx"
 import Main from "./components/Main.jsx"
 import { useState } from "react"
+import axios from "axios"
 
-// Query string, my api key
+// Query string, api key
 const API_KEY = "309c8d043ba0e8cc2094f0301fd5ce49"
 
 function App() {
@@ -21,12 +22,26 @@ function App() {
 
   const [movies, setMovies] = useState([])
   const [series, setSeries] = useState([])
-  const [query, SetQuery] = useState("") // valore di stringa ricerca utente
+  const [query, setQuery] = useState("Star Wars") // valore di stringa ricerca utente
   
-  
+  function fetchData() {
+
+    axios.get("https://api.themoviedb.org/3/search/movie",{
+      params: {
+        api_key: API_KEY,
+        query: query
+      }
+    }).then(res => {
+      console.log(res.data)
+      setMovies(res.data.results)
+    }).catch(err => {
+      console.error(err)  
+      setMovies([])
+    })
+  }
   return (
     <>
-      <GlobalContext.Provider value={{ API_KEY, movies, series, query, SetQuery}}>
+      <GlobalContext.Provider value={{  movies, series, query, fetchData, setQuery}}>
         <Header/>
         <Main/>
       </GlobalContext.Provider>
